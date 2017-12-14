@@ -1,0 +1,7 @@
+/GLideN64/
+/Debug/
+/Release/
+/_obj*/
+*.so
+*.map
+
