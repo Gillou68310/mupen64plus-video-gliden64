@@ -183,7 +183,12 @@ ifeq ($(VEC4_OPT), 1)
 endif
 
 ifeq ($(NEON_OPT), 1)
-  CFLAGS += -D__NEON_OPT -mfpu=neon
+ifeq ($(CPU), ARM)
+ifeq ($(ARCH_DETECTED), 32BITS)
+  CFLAGS += -mfpu=neon
+endif
+endif
+  CFLAGS += -D__NEON_OPT
 endif
 
 ifeq ($(ODROID), 1)
@@ -416,12 +421,10 @@ ifeq ($(CRC_ARMV8), 1)
 		$(SRCDIR)/CRC32_ARMV8.cpp
 else ifeq ($(CRC_OPT), 1)
 	SOURCE += \
-		$(SRCDIR)/CRC_OPT.cpp \
-		$(SRCDIR)/xxHash/xxhash.c
+		$(SRCDIR)/CRC_OPT.cpp
 else ifeq ($(CRC_NEON), 1)
 	SOURCE += \
-		$(SRCDIR)/Neon/CRC_OPT_NEON.cpp \
-		$(SRCDIR)/xxHash/xxhash.c
+		$(SRCDIR)/Neon/CRC_OPT_NEON.cpp
 else
 	SOURCE += \
 		$(SRCDIR)/CRC32.cpp
@@ -435,7 +438,8 @@ else ifeq ($(NEON_OPT), 1)
 	SOURCE += \
 		$(SRCDIR)/Neon/3DMathNeon.cpp \
 		$(SRCDIR)/Neon/gSPNeon.cpp \
-		$(SRCDIR)/Neon/RSP_LoadMatrixNeon.cpp
+		$(SRCDIR)/Neon/RSP_LoadMatrixNeon.cpp \
+		$(SRCDIR)/Neon/WriteToRDRAM_Neon.cpp
 else
 	SOURCE += \
 		$(SRCDIR)/3DMath.cpp \

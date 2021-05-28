@@ -81,6 +81,9 @@
     <Filter Include="Header Files\Graphics\OpenGLContext\windows">
       <UniqueIdentifier>{deb30cf1-a381-46c0-b67a-83963d5b8281}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Neon">
+      <UniqueIdentifier>{10de1251-5209-4803-a2bc-34b1e073f041}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLideN64\src\Combiner.cpp">
@@ -427,6 +430,21 @@
     </ClCompile>
     <ClCompile Include="GLideN64\src\BufferCopy\BlueNoiseTexture.cpp">
       <Filter>Source Files\BufferCopy</Filter>
+    </ClCompile>
+    <ClCompile Include="GLideN64\src\Neon\3DMathNeon.cpp">
+      <Filter>Source Files\Neon</Filter>
+    </ClCompile>
+    <ClCompile Include="GLideN64\src\Neon\CRC_OPT_NEON.cpp">
+      <Filter>Source Files\Neon</Filter>
+    </ClCompile>
+    <ClCompile Include="GLideN64\src\Neon\gSPNeon.cpp">
+      <Filter>Source Files\Neon</Filter>
+    </ClCompile>
+    <ClCompile Include="GLideN64\src\Neon\RSP_LoadMatrixNeon.cpp">
+      <Filter>Source Files\Neon</Filter>
+    </ClCompile>
+    <ClCompile Include="GLideN64\src\Neon\WriteToRDRAM_Neon.cpp">
+      <Filter>Source Files\Neon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
